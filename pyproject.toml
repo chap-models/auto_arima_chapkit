@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "ML service for auto_arima_chapkit"
 requires-python = ">=3.13"
 dependencies = [
-    "chapkit>=0.17.0",
+    "chapkit>=0.27.0",
     "pandas>=2.3.3",
     # Add your ML library here (e.g., "scikit-learn>=1.6.1", "tensorflow>=2.17.0")
 ]

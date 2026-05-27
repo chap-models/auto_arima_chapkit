@@ -88,7 +88,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "chapkit", specifier = ">=0.17.0" },
+    { name = "chapkit", specifier = ">=0.27.0" },
     { name = "pandas", specifier = ">=2.3.3" },
 ]
 
@@ -106,7 +106,7 @@ wheels = [
 
 [[package]]
 name = "chapkit"
-version = "0.17.0"
+version = "0.27.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "geojson-pydantic" },
@@ -115,9 +115,9 @@ dependencies = [
     { name = "servicekit" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/56/59/bcb77b997e32d164266455969234342f47772fc993313a1e8e3b8e84ebb4/chapkit-0.17.0.tar.gz", hash = "sha256:2c79fd056f2a808c3895b9a8b2cd2a7774e3b029de66ed0f639a53998bb9fd41", size = 76392, upload-time = "2026-04-13T09:48:53.843Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/8d/e0ac2682ff655f5037941302970d3d0f57c69e453d278484b73fd447f4b9/chapkit-0.27.0.tar.gz", hash = "sha256:9b22bd4652161d5c70e9d8076ffabcce724ed8d10a3bb84c04b0f854b061c9c7", size = 104490, upload-time = "2026-05-27T12:38:57.748Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f8/42/eb40cf9e0de39e94df5018513156af4a5e67fdf994465fce86b0648da140/chapkit-0.17.0-py3-none-any.whl", hash = "sha256:12f40f4b2d211185caf230480216db73d740e88ecd2e5761056f48bf76abcbe5", size = 104696, upload-time = "2026-04-13T09:48:52.789Z" },
+    { url = "https://files.pythonhosted.org/packages/30/dd/76a1ba5f0c251c22bde8729197d0f04b99c450ed30ed51c0cfd14282c2dd/chapkit-0.27.0-py3-none-any.whl", hash = "sha256:14a435b4c569b3ab32d9142bae70d8cabf803347f1bfcf138bbcb2955e65c435", size = 134397, upload-time = "2026-05-27T12:38:56.217Z" },
 ]
 
 [[package]]
@@ -165,7 +165,7 @@ wheels = [
 
 [[package]]
 name = "fastapi"
-version = "0.135.3"
+version = "0.136.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "annotated-doc" },
@@ -174,15 +174,16 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f7/e6/7adb4c5fa231e82c35b8f5741a9f2d055f520c29af5546fd70d3e8e1cd2e/fastapi-0.135.3.tar.gz", hash = "sha256:bd6d7caf1a2bdd8d676843cdcd2287729572a1ef524fc4d65c17ae002a1be654", size = 396524, upload-time = "2026-04-01T16:23:58.188Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/2d/ff8d91d7b564d464629a0fd50a4489c97fcb836ac230bf3a7269232a9b1f/fastapi-0.136.3.tar.gz", hash = "sha256:e487fae93ad408e6f47641ee4dfe389864fd7bec92e547ea8498fc13f43e83ab", size = 396410, upload-time = "2026-05-23T18:53:15.192Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/84/a4/5caa2de7f917a04ada20018eccf60d6cc6145b0199d55ca3711b0fc08312/fastapi-0.135.3-py3-none-any.whl", hash = "sha256:9b0f590c813acd13d0ab43dd8494138eb58e484bfac405db1f3187cfc5810d98", size = 117734, upload-time = "2026-04-01T16:23:59.328Z" },
+    { url = "https://files.pythonhosted.org/packages/e0/82/45359b62a067409bd929ae8a56b8ed13e5a8c8a61194b3c236920999ab83/fastapi-0.136.3-py3-none-any.whl", hash = "sha256:3d2a69bdf04b7e9f3afa292c3bc7a98816bbfafa10bc9b45f3f3700d2f761620", size = 117481, upload-time = "2026-05-23T18:53:16.924Z" },
 ]
 
 [package.optional-dependencies]
 standard = [
     { name = "email-validator" },
     { name = "fastapi-cli", extra = ["standard"] },
+    { name = "fastar" },
     { name = "httpx" },
     { name = "jinja2" },
     { name = "pydantic-extra-types" },
@@ -1044,7 +1045,7 @@ wheels = [
 
 [[package]]
 name = "servicekit"
-version = "0.9.0"
+version = "0.12.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiosqlite" },
@@ -1059,11 +1060,12 @@ dependencies = [
     { name = "pydantic" },
     { name = "python-ulid" },
     { name = "sqlalchemy", extra = ["asyncio"] },
+    { name = "starlette" },
     { name = "structlog" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/60/13/e012c4fbb325164b6cde7ab9650f4e582526be43c7da40a887560d799f1d/servicekit-0.9.0.tar.gz", hash = "sha256:99f0c6696e56daf65bd2ccbc6b0095e6833a4e36671c61cde1cccac1dd36e518", size = 41966, upload-time = "2026-04-13T09:46:58.943Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a7/12/7ce7186b267b866043dcbff6161f0fdc400c999d99763afb179d6bbccc7f/servicekit-0.12.0.tar.gz", hash = "sha256:8e367b0900f5f18f921251b4de30d26e346a2c53d576b7a5c6d3534c8f68b39c", size = 42342, upload-time = "2026-05-27T12:33:52.812Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/05/a1/7bebd16c944b63dfefe14b008be86b41adf06d14187f1c6aa4f147207b75/servicekit-0.9.0-py3-none-any.whl", hash = "sha256:e39b8291f87578c16336bc651b88ebb533ee6753ff724803004cad8a13e2858d", size = 54196, upload-time = "2026-04-13T09:47:00.262Z" },
+    { url = "https://files.pythonhosted.org/packages/02/30/2f704c69e172fa42691de82284ab458bc1f15824bd8a1831811494f6451d/servicekit-0.12.0-py3-none-any.whl", hash = "sha256:18f7348da511e028da530d27f0cb94cc3752f4d3531462ec53cbada80d910194", size = 54192, upload-time = "2026-05-27T12:33:51.564Z" },
 ]
 
 [[package]]
@@ -1130,14 +1132,14 @@ asyncio = [
 
 [[package]]
 name = "starlette"
-version = "1.0.0"
+version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/81/69/17425771797c36cded50b7fe44e850315d039f28b15901ab44839e70b593/starlette-1.0.0.tar.gz", hash = "sha256:6a4beaf1f81bb472fd19ea9b918b50dc3a77a6f2e190a12954b25e6ed5eea149", size = 2655289, upload-time = "2026-03-22T18:29:46.779Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/66/4d20cdf39a8d6a51e663b7038e3b828ff211d3891a43a713fe7e4643f3a8/starlette-1.1.0.tar.gz", hash = "sha256:e83c7fe0ddecd8719c5b840080325aec0260acec86e9832899e377b91d65e90f", size = 2660060, upload-time = "2026-05-23T16:55:41.376Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0b/c9/584bc9651441b4ba60cc4d557d8a547b5aff901af35bda3a4ee30c819b82/starlette-1.0.0-py3-none-any.whl", hash = "sha256:d3ec55e0bb321692d275455ddfd3df75fff145d009685eb40dc91fc66b03d38b", size = 72651, upload-time = "2026-03-22T18:29:45.111Z" },
+    { url = "https://files.pythonhosted.org/packages/93/79/920b8e0a8b20f793e8d64855095cb8febabf6175b8550b6f7a547d813891/starlette-1.1.0-py3-none-any.whl", hash = "sha256:7f0dfd38e428aad5cb6f9f667f0ca1d2d8ca3f3385dccac8305f79ec98458382", size = 72899, upload-time = "2026-05-23T16:55:39.201Z" },
 ]
 
 [[package]]
@@ -1151,17 +1153,17 @@ wheels = [
 
 [[package]]
 name = "typer"
-version = "0.24.1"
+version = "0.26.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "annotated-doc" },
-    { name = "click" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
     { name = "rich" },
     { name = "shellingham" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz", hash = "sha256:e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45", size = 118613, upload-time = "2026-02-21T16:54:40.609Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/67/a5/756f2e6bc81a7dd79aa3c625dd01b74cabc4516628cace2caaec09ca6ff2/typer-0.26.2.tar.gz", hash = "sha256:9b4f19e08fcc9427a822d1ef467b1fe76737a2f65c7926bdeba2337d73569b68", size = 198991, upload-time = "2026-05-27T10:41:39.166Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4a/91/48db081e7a63bb37284f9fbcefda7c44c277b18b0e13fbc36ea2335b71e6/typer-0.24.1-py3-none-any.whl", hash = "sha256:112c1f0ce578bfb4cab9ffdabc68f031416ebcc216536611ba21f04e9aa84c9e", size = 56085, upload-time = "2026-02-21T16:54:41.616Z" },
+    { url = "https://files.pythonhosted.org/packages/8b/a5/6ffd702beda8798b2b82ff70805ed4a66d963557e43a5d1823ab456251a4/typer-0.26.2-py3-none-any.whl", hash = "sha256:39beff72ffbb31978a5b545f677d57edb97c6f980f433b38556deb0af25f094d", size = 123123, upload-time = "2026-05-27T10:41:40.504Z" },
 ]
 
 [[package]]
