@@ -1,34 +1,31 @@
+# auto_arima_chapkit Dockerfile
+# chapkit-r-tidyverse ships R 4.5 + the tidyverse + forecasting stack
+# (dplyr, fable, tsibble, lubridate, ...) preinstalled, plus uv +
+# Python 3.13 in the base image's /app/.venv. Multi-arch (linux/amd64,
+# linux/arm64); the platform ARG defaults to amd64 for parity with the
+# existing compose.yml but can be overridden for a native arm64 build.
 ARG BASE_PLATFORM=linux/amd64
+FROM --platform=${BASE_PLATFORM} ghcr.io/dhis2-chap/chapkit-r-tidyverse:latest
 
-FROM --platform=${BASE_PLATFORM} ghcr.io/dhis2-chap/docker_for_madagascararima:master
+# chapkit-py runs as root; matches chapkit-r / chapkit-r-tidyverse.
+USER root
 
-COPY --from=ghcr.io/astral-sh/uv:0.11 /uv /uvx /usr/local/bin/
-
-RUN apt-get update && \
-    apt-get install -y ca-certificates curl gpg && \
-    curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776' \
-      | gpg --dearmor -o /etc/apt/trusted.gpg.d/deadsnakes.gpg && \
-    echo "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu jammy main" \
-      > /etc/apt/sources.list.d/deadsnakes.list && \
-    apt-get update && \
-    apt-get install -y python3.13 && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV UV_LINK_MODE=copy \
-    UV_COMPILE_BYTECODE=1 \
-    UV_PROJECT_ENVIRONMENT=/app/.venv \
-    UV_PYTHON=python3.13 \
-    UV_PYTHON_PREFERENCE=only-system \
-    PATH="/app/.venv/bin:${PATH}"
-
-WORKDIR /app
-
+WORKDIR /work
+# Copy lockfile + manifest first so the dep-install layer caches independently of code changes.
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-dev --no-install-project
+
+# Sync user deps into the base image's existing venv at /app/.venv. --frozen pins to
+# uv.lock for reproducible builds, --no-dev skips dev-only deps (uvicorn etc. ship with
+# the base), --no-install-project because this project isn't a package, just a service.
+RUN --mount=type=cache,target=/root/.cache/uv \
+    UV_PROJECT_ENVIRONMENT=/app/.venv uv sync --frozen --no-dev --no-install-project
 
 COPY main.py ./
 COPY scripts/ ./scripts/
 
 EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl --fail http://localhost:8000/health || exit 1
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
