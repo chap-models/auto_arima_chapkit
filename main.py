@@ -108,6 +108,7 @@ app = (
     #     orchestrator_url="https://chap.example.org/v2/services/$register",
     #     registration_key="your-secret-key",  # or use SERVICEKIT_REGISTRATION_KEY env var
     # )
+    .with_registration()
     .build()
 )
 
