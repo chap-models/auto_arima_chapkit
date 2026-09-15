@@ -14,7 +14,7 @@ help:
 
 build:
 	@echo ">>> Building $(IMAGE)"
-	@docker build --no-cache -t $(IMAGE) .
+	@docker build --build-arg GIT_REVISION=$(shell git rev-parse HEAD 2>/dev/null) --no-cache -t $(IMAGE) .
 
 run: build
 	@echo ">>> Running $(IMAGE) on :8000"
