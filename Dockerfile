@@ -5,7 +5,7 @@
 # linux/arm64); the platform ARG defaults to amd64 for parity with the
 # existing compose.yml but can be overridden for a native arm64 build.
 ARG BASE_PLATFORM=linux/amd64
-FROM --platform=${BASE_PLATFORM} ghcr.io/dhis2-chap/chapkit-r-tidyverse:latest@sha256:2de516be3b9ae0ba2025eb390fd66930260b45f15a9ed88a04e70c67d55f5240
+FROM --platform=${BASE_PLATFORM} ghcr.io/dhis2-chap/chapkit-r-tidyverse:latest@sha256:81821c161460cb4fb3b0f4164e9c06e477a5c0d1e5e6d0a27f2bbf8da676828f
 
 # chapkit-py runs as root; matches chapkit-r / chapkit-r-tidyverse.
 USER root
